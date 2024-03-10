@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Navbar shrink on scroll</title>
+    <style>
+        /* CSS để chỉnh sửa navbar */
+        .navbar-shrink {
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+        }
+
+        /* CSS để điều chỉnh kích thước của logo */
+        .navbar-brand img {
+            max-height: 50px; /* Kích thước tối đa của logo */
+            transition: max-height 0.3s; /* Hiệu ứng chuyển đổi */
+        }
+
+        /* Khi navbar thu nhỏ, thay đổi kích thước của logo */
+        .navbar-shrink .navbar-brand img {
+            max-height: 30px; /* Kích thước nhỏ hơn của logo */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="logo.png" alt="Logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="container mt-5">
+        <h1>Scroll down to see the effect</h1>
+        <!-- Placeholder content to make the page scrollable -->
+        <div style="height: 1500px;"></div>
+    </div>
+
+    <!-- JavaScript để thêm hoặc loại bỏ lớp navbar-shrink -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script>
+        $(window).scroll(function () {
+            if ($(document).scrollTop() > 50) {
+                $('.navbar').addClass('navbar-shrink');
+            } else {
+                $('.navbar').removeClass('navbar-shrink');
+            }
+        });
+    </script>
+</body>
+
+</html>
